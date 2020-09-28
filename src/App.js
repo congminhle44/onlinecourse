@@ -1,25 +1,35 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import ClientTemplate from "./Template/ClientTemplate";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { client } from "./routes";
+import NotFound from "./PageNotFound/notfound";
+
+const showClientTemplate = (routes) => {
+  if (routes && routes.length > 0) {
+    return routes.map((item, index) => {
+      return (
+        <ClientTemplate
+          path={item.path}
+          exact={item.exact}
+          Component={item.component}
+          key={index}
+        />
+      );
+    });
+  }
+};
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <div>
+        <Switch>
+          {showClientTemplate(client)}
+          <Route path="" component={NotFound} />
+        </Switch>
+      </div>
+    </BrowserRouter>
   );
 }
 

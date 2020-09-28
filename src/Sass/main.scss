@@ -1,0 +1,70 @@
+html {
+  --bg: #fcfcfc;
+  --bg-sub: #fcfcfc;
+  --secondary-button-background: #e4e6eb;
+  --secondary-button-color: #615f5f;
+  --bg-hex: 252, 252, 252;
+  --color-headings: #df4e4e;
+  --text-color: #333333;
+  --text-color-hex: 51, 51, 51;
+}
+html[data-theme="dark"] {
+  --bg: #272727;
+  --bg-sub: #333333;
+  --secondary-button-color: #e4e6eb;
+  --secondary-button-background: rgba(225, 225, 225, 225, 0.1);
+  --bg-hex: 51, 51, 51;
+  --color-headings: #df4e4e;
+  --text-color: #fcfcfc;
+  --text-color-hex: 252, 252, 252;
+}
+::-webkit-scrollbar {
+  width: 3px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #17161a;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--color-headings);
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background: var(--color-headings);
+  height: 100%;
+  padding: 2%;
+  scroll-behavior: smooth;
+}
+
+.mainContent {
+  border-radius: 25px;
+  padding: 20px 0;
+  background-image: url("../images/lookingTech.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: fit-content;
+  max-height: 1200px;
+  box-shadow: 0 1px 5px -3px var(--text-color);
+}
+
+html.theme-transition,
+html.theme-transition *,
+html.theme-transition *:before,
+html.theme-transition *:after {
+  transition: all 500ms !important;
+  transition-delay: 0 !important;
+}
+@import "./layout/Header/header";
+@import "./layout/Home/carousel";
+@import "./layout/CourseChoice/coursecategories";
+@import "./layout/Header/cartList";
+@import "./layout/Login/login";
+@import "./layout/Login/register";
+@import "./layout/Notfound/notfound";
