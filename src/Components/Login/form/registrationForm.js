@@ -27,7 +27,7 @@ export default class Registration extends Component {
             <div className="indentify">
               <div className="fullname">
                 <FontAwesomeIcon icon={faUser} />
-                <input type="text" placeholder="Username" name="fullName" />
+                <input type="text" placeholder="Fullname" name="fullName" />
               </div>
               <div className="email">
                 <FontAwesomeIcon icon={faEnvelope} />
