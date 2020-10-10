@@ -1,0 +1,99 @@
+.carting {
+  width: 95%;
+  height: fit-content;
+  max-height: 600px;
+  overflow: hidden;
+  -webkit-box-shadow: 0 0 5px #dedfe0;
+  box-shadow: 0 0 5px #dedfe0;
+  background-color: rgba(var(--bg-hex), 0.93);
+  border-radius: 20px;
+  padding: 10px;
+  margin: 0 auto;
+  h5 {
+    color: var(--text-color);
+  }
+  hr {
+    background-color: rgba(var(--text-color-hex), 0.1);
+  }
+  .cart-wrapper {
+    width: 95%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    height: 530px;
+    overflow: auto;
+    .cart-list {
+      -webkit-box-shadow: 0 0 5px #dedfe0;
+      box-shadow: 0 0 5px #dedfe0;
+      width: 100%;
+      .carting-item {
+        display: flex;
+        .cart-item-feature {
+          margin: 10px 5px;
+          svg {
+            color: rgba(var(--text-color-hex), 0.7);
+          }
+          cursor: pointer;
+        }
+        .cart-item-wrapper {
+          display: flex;
+          border-bottom: 1px solid rgba(var(--text-color-hex), 0.1);
+          padding: 8px 10px;
+          &:last-child {
+            border: none;
+          }
+          .carting-item-img {
+            img {
+              width: 120px;
+              height: 120px;
+            }
+          }
+          .carting-item-content {
+            margin-left: 10px;
+            color: var(--text-color);
+            p {
+              margin: 0;
+            }
+            .description {
+              height: 60px;
+              overflow: hidden;
+              width: 95%;
+            }
+            .cost {
+              color: var(--color-headings);
+              font-size: 20px;
+              font-weight: 600;
+            }
+          }
+        }
+      }
+    }
+
+    .cart-payment {
+      width: 400px;
+      height: 300px;
+      -webkit-box-shadow: 0 0 5px #dedfe0;
+      box-shadow: 0 0 5px #dedfe0;
+      padding: 5px 8px;
+      position: sticky;
+      top: 0;
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+      color: var(--text-color);
+      h5 {
+        color: var(--color-headings);
+      }
+      .cart-button {
+        .pay-btn {
+          width: 100%;
+          padding: 10px 0;
+          font-size: 18px;
+          border: none;
+          background-color: var(--color-headings);
+          color: white;
+        }
+      }
+    }
+  }
+}

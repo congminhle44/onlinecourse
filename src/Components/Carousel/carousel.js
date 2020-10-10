@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import { faSearch, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { connect } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
@@ -16,20 +16,24 @@ class Carousel extends Component {
       return courseList
         .filter((item) => {
           return (
-            item.tenKhoaHoc
+            item.courseName
               .toLowerCase()
               .indexOf(this.state.searchKey.toLowerCase()) > -1
           );
         })
         .map((item, index) => {
           return (
-            <Link key={index} className="searchItem" to="/">
+            <Link
+              key={index}
+              className="searchItem"
+              to={`/course-detail/course-id=${item._id}`}
+            >
               <div className="item-image">
-                <img src={item.hinhAnh} alt={item.biDanh} />
+                <img src={item.courseImage} alt={item.courseName} />
               </div>
               <div className="item-content">
-                <h4>{item.tenKhoaHoc}</h4>
-                <p>{item.moTa}</p>
+                <h4>{item.courseName}</h4>
+                <p>{item.courseDescription}</p>
               </div>
             </Link>
           );
@@ -38,7 +42,7 @@ class Carousel extends Component {
   };
   render() {
     return (
-      <div className="carousel">
+      <div className="carousel desktop">
         <div className="carousel-form">
           <h3>High speed learning</h3>
           <p>
@@ -56,13 +60,20 @@ class Carousel extends Component {
                     searchKey: e.target.value,
                   });
                 }}
-                onBlur={() => {
-                  this.setState({ searchKey: "" });
-                }}
+                value={this.state.searchKey}
                 onFocus={(e) => {
                   this.setState({ searchKey: e.target.value });
                 }}
               />
+              {this.state.searchKey !== "" ? (
+                <FontAwesomeIcon
+                  onClick={() => {
+                    this.setState({ searchKey: "" });
+                  }}
+                  className="delAllText"
+                  icon={faTimes}
+                />
+              ) : null}
               {this.state.searchKey !== "" ? (
                 <div className="searchResult">{this.handleSearchItem()}</div>
               ) : null}

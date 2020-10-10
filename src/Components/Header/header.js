@@ -2,7 +2,12 @@ import React, { Component } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { connect } from "react-redux";
 import * as Action from "../../Redux/action";
-import { faMoon, faUser, faHeart } from "@fortawesome/free-solid-svg-icons";
+import {
+  faMoon,
+  faUser,
+  faHeart,
+  faShoppingCart,
+} from "@fortawesome/free-solid-svg-icons";
 
 import { Link } from "react-router-dom";
 import JwtDecode from "jwt-decode";
@@ -31,9 +36,6 @@ class Header extends Component {
     this.props.actGetCourseList();
     this.props.actGetUserOAuthLoginInfo();
     document.addEventListener("click", this.handleClickOutside);
-    this.setState({
-      userToken: localStorage.getItem("clientUser") ? true : false,
-    });
   }
 
   componentWillUnmount() {
@@ -47,7 +49,6 @@ class Header extends Component {
         : "dark";
     this.setState({ theme });
     document.documentElement.setAttribute("data-theme", theme);
-    localStorage.setItem("theme", theme);
     document.documentElement.classList.add("theme-transition");
     window.setTimeout(function () {
       document.documentElement.classList.remove("theme-transition");
@@ -55,9 +56,13 @@ class Header extends Component {
   }
 
   render() {
+    const { courseCartList } = this.props;
     const user = localStorage.getItem("clientUser")
       ? JwtDecode(localStorage.getItem("clientUser"))
       : "";
+    setTimeout(() => {
+      this.forceUpdate();
+    }, 0);
     return (
       <div className="header-wrapper d-flex justify-content-between align-items-center">
         <div className="header-left">
@@ -74,6 +79,14 @@ class Header extends Component {
           <div className="wishList">
             <FontAwesomeIcon icon={faHeart} />
           </div>
+          <Link to="/cart" className="cart">
+            <FontAwesomeIcon icon={faShoppingCart} />
+            {courseCartList.length !== 0 ? (
+              <div className="cart-amount">
+                <p>{courseCartList.length}</p>
+              </div>
+            ) : null}
+          </Link>
           {Object.keys(user).length === 0 ? (
             <div className="user-authenticate">
               <Link className="login-button" to="/login">
@@ -103,7 +116,7 @@ class Header extends Component {
               </div>
             </div>
           )}
-          <div className="toggleMenu ml-2" ref={this.wrapperRef}>
+          <div className="toggleMenu ml-2 mobile" ref={this.wrapperRef}>
             <div
               className="navIcon"
               onClick={() => {

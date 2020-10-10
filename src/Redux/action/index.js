@@ -5,7 +5,7 @@ import { api } from "../../api";
 export const actGetCourseCategory = () => {
   return (dispatch) => {
     api
-      .get("/QuanLyKhoaHoc/LayDanhMucKhoaHoc")
+      .get("/api/coursecategories")
       .then((result) => {
         dispatch({
           type: ActionTypes.GET_COURSE_CATEGORIES,
@@ -21,9 +21,7 @@ export const actGetCourseCategory = () => {
 export const actGetCourseByCategory = (category) => {
   return (dispatch) => {
     api
-      .get(
-        `/QuanLyKhoaHoc/LayKhoaHocTheoDanhMuc?maDanhMuc=${category}&MaNhom=GP01`
-      )
+      .get(`/api/coursecategories/category=${category}`)
       .then((result) => {
         dispatch({
           type: ActionTypes.GET_COURSE_BY_CATEGORY,
@@ -46,7 +44,7 @@ export const actGetCourseByCategory = (category) => {
 export const actGetCourseList = () => {
   return (dispatch) => {
     api
-      .get("/QuanLyKhoaHoc/LayDanhSachKhoaHoc?MaNhom=GP01")
+      .get("/api/courses/get-course")
       .then((result) => {
         dispatch({
           type: ActionTypes.GET_COURSE_LIST,
@@ -61,27 +59,25 @@ export const actGetCourseList = () => {
 
 export const actGetOAuthLoginInfo = () => {
   return (dispatch) => {
-    fetch("http://localhost:5000/login/success", {
-      method: "GET",
-      credentials: "include",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-        "Access-Control-Allow-Credentials": true,
-      },
-    })
-      .then((response) => {
-        if (response.status === 200) return response.json();
-        throw new Error("failed to authenticate user");
-      })
+    api
+      .get("/login/success", { withCredentials: true })
       .then((responseJson) => {
         dispatch({
           type: ActionTypes.GET_USER_AUTH_LOGIN_INFO,
         });
-        localStorage.setItem("clientUser", responseJson.token);
+        localStorage.setItem("clientUser", responseJson.data.token);
       })
       .catch((error) => {
         throw error;
       });
+  };
+};
+
+export const actCreateNotiObj = (name, type) => {
+  return (dispatch) => {
+    dispatch({
+      type: ActionTypes.CREATE_NOTI_OBJ,
+      courseAdd: { name, type },
+    });
   };
 };

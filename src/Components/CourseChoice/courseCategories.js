@@ -8,10 +8,7 @@ import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
-// import CourseCarousel from "./courseCarousel";
-// import OwlCarousel from "react-owl-carousel";
-// import "owl.carousel/dist/assets/owl.carousel.css";
-// import "owl.carousel/dist/assets/owl.theme.default.css";
+import CourseWrapper from "./courseWrapper";
 import CourseCard from "./courseCard";
 
 function TabPanel(props) {
@@ -50,7 +47,6 @@ function a11yProps(index) {
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
-    backgroundColor: theme.palette.background.paper,
   },
 }));
 
@@ -80,10 +76,10 @@ function CourseCategories(props) {
         return (
           <Tab
             key={index}
-            label={item.tenDanhMuc}
+            label={item.categoryName}
             {...a11yProps(index)}
             onClick={() => {
-              setCategory(item.maDanhMuc);
+              setCategory(item.categoryID);
               setCategoryID(index);
             }}
           />
@@ -106,7 +102,9 @@ function CourseCategories(props) {
         <Tabs
           value={value}
           onChange={handleChange}
-          aria-label="simple tabs example"
+          variant="scrollable"
+          scrollButtons="auto"
+          aria-label="scrollable auto tabs example"
         >
           {renderTabHeader()}
         </Tabs>
@@ -114,7 +112,7 @@ function CourseCategories(props) {
 
       <TabPanel value={value} index={categoryID}>
         {props.courseByCategoryErr === null ? (
-          <React.Fragment className="row">{renderTabContent()}</React.Fragment>
+          <CourseWrapper value={renderTabContent()} />
         ) : (
           "This category doesn't have any course yet"
         )}

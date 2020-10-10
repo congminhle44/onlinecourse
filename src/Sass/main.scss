@@ -37,7 +37,7 @@ html[data-theme="dark"] {
 body {
   background: var(--color-headings);
   height: 100%;
-  padding: 2%;
+  padding: 0.5%;
   scroll-behavior: smooth;
 }
 
@@ -45,12 +45,10 @@ body {
   border-radius: 25px;
   padding: 20px 0;
   background-image: url("../images/lookingTech.jpg");
-  background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: fit-content;
-  max-height: 1200px;
+  height: 740px;
   box-shadow: 0 1px 5px -3px var(--text-color);
 }
 
@@ -61,10 +59,23 @@ html.theme-transition *:after {
   transition: all 500ms !important;
   transition-delay: 0 !important;
 }
-@import "./layout/Header/header";
-@import "./layout/Home/carousel";
-@import "./layout/CourseChoice/coursecategories";
-@import "./layout/Header/cartList";
+@import "./components/Header/header";
+@import "./components/Carousel/carousel";
+@import "./components/CourseChoice/coursecategories";
 @import "./layout/Login/login";
 @import "./layout/Login/register";
 @import "./layout/Notfound/notfound";
+@import "./layout/Home/home";
+@import "./components/Notification/topNoti";
+@import "./layout/Cart/cart";
+
+@media (min-width: 320px) and (max-width: 767px) {
+  .desktop {
+    display: none;
+  }
+}
+@media only screen and(min-width:768px) {
+  .mobile {
+    display: none;
+  }
+}

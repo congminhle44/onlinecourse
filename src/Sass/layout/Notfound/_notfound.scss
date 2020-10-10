@@ -2,6 +2,7 @@
   border-radius: 25px;
   background-color: var(--bg);
   box-shadow: 0 1px 5px -3px var(--text-color);
+  padding: 20px 0;
   .notfoundMain {
     margin: 0 auto;
     width: 90%;
@@ -10,7 +11,7 @@
     align-items: center;
     padding: 3% 0;
     .notfoundImg {
-      width: 55%;
+      width: 45%;
       img {
         width: 100%;
         height: 100%;

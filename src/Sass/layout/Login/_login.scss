@@ -124,13 +124,15 @@
                 text-decoration: none;
               }
               .login-event {
-                width: 87%;
+                width: 95%;
+                margin: 0 auto;
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
-                margin: 0 auto;
+                margin: 0;
                 .login-btn {
                   background-color: var(--color-headings);
+                  padding: 10px 20px;
                   color: white;
                   font-weight: 500;
                   border-radius: 20px;

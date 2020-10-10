@@ -1,0 +1,25 @@
+.topNoti {
+  position: fixed;
+  top: 10px;
+  left: 40%;
+  right: 0;
+  width: 340px;
+  background-color: rgba(var(--bg-hex), 0.9);
+  padding: 20px 30px;
+  border-radius: 25px;
+  z-index: 9999;
+  transition: all 0.5s;
+  h4 {
+    color: var(--text-color);
+    font-size: 1.5vw;
+    text-align: center;
+    opacity: 0;
+  }
+  transform: translateY(-120%);
+  &.show {
+    transform: translateY(0);
+    h4 {
+      opacity: 1;
+    }
+  }
+}

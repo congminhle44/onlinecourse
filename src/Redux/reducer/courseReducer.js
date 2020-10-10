@@ -4,7 +4,10 @@ let initialState = {
   courseCategories: [],
   courseByCategory: [],
   courseByCategoryErr: null,
-  courseCartList: [],
+  courseCartList: localStorage.getItem("cart")
+    ? JSON.parse(localStorage.getItem("cart"))
+    : [],
+  courseAdd: {},
   courseList: [],
 };
 const courseReducer = (state = initialState, action) => {
@@ -15,6 +18,10 @@ const courseReducer = (state = initialState, action) => {
     }
     case ActionTypes.GET_COURSE_BY_CATEGORY: {
       state.courseByCategory = action.courseByCategory;
+      return { ...state };
+    }
+    case ActionTypes.CREATE_NOTI_OBJ: {
+      state.courseAdd = action.courseAdd;
       return { ...state };
     }
     case ActionTypes.GET_COURSE_BY_CATEGORY_ERR: {

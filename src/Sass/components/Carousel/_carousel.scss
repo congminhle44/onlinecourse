@@ -1,12 +1,12 @@
 .carousel {
   background-color: rgba(var(--bg-hex), 0.93);
   border: 1.5px solid var(--color-headings);
-  height: 580px;
+  height: 38rem;
   border-radius: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 90%;
+  width: 93%;
   margin: 0 auto 20px auto;
   position: relative;
   .carousel_img {
@@ -25,14 +25,15 @@
     width: 38%;
     border-radius: 20px;
     h3 {
-      font-size: 40px;
+      font-size: 2.5vw;
       color: var(--color-headings);
     }
     p {
-      font-size: 20px;
+      font-size: 1.2vw;
       color: var(--text-color);
     }
     .searchWrapper {
+      position: relative;
       .searchBar {
         width: 100%;
         border-radius: 40px;
@@ -43,6 +44,11 @@
         align-items: center;
         overflow: hidden;
         height: 50px;
+        .delAllText {
+          color: rgba(var(--text-color-hex), 0.6);
+          cursor: pointer;
+          font-weight: 600;
+        }
         .searchResult {
           position: absolute;
           background-color: var(--bg-sub);
@@ -50,7 +56,7 @@
           z-index: 9999;
           left: 38px;
           width: 85%;
-          top: 242px;
+          top: 50px;
           height: fit-content;
           max-height: 300px;
           overflow: auto;
@@ -73,11 +79,20 @@
             .item-content {
               width: 70%;
               height: 100%;
+              p {
+                font-size: 16px;
+              }
+              h4 {
+                font-size: 20px;
+              }
             }
             &:hover {
               text-decoration: none;
               background-color: rgba(var(--text-color-hex), 0.6);
-              color: var(--bg-sub);
+              h4,
+              p {
+                color: var(--bg-sub);
+              }
             }
           }
         }
