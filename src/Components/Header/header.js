@@ -107,7 +107,7 @@ class Header extends Component {
                   <li>Information</li>
                   <li
                     onClick={() => {
-                      localStorage.clear();
+                      localStorage.removeItem("clientUser");
                     }}
                   >
                     <a href="http://localhost:5000/logout">Logout</a>

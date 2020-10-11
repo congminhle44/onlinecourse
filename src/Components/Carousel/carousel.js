@@ -26,7 +26,7 @@ class Carousel extends Component {
             <Link
               key={index}
               className="searchItem"
-              to={`/course-detail/course-id=${item._id}`}
+              to={`/course-info/course=${item._id}`}
             >
               <div className="item-image">
                 <img src={item.courseImage} alt={item.courseName} />

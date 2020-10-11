@@ -7,7 +7,7 @@
   box-shadow: 0 0 5px #dedfe0;
   background-color: rgba(var(--bg-hex), 0.93);
   border-radius: 20px;
-  padding: 10px;
+  padding: 20px;
   margin: 0 auto;
   h5 {
     color: var(--text-color);
@@ -92,6 +92,34 @@
           border: none;
           background-color: var(--color-headings);
           color: white;
+        }
+      }
+    }
+  }
+  .cart-empty {
+    padding: 20px 10px;
+    .cart-empty-content {
+      .cart-empty-content-icon {
+        width: 100%;
+        font-size: 90px;
+        color: rgba(var(--text-color-hex), 0.7);
+        text-align: center;
+      }
+      p {
+        text-align: center;
+        color: var(--text-color);
+      }
+    }
+    .cart-empty-link {
+      background-color: var(--color-headings);
+      text-decoration: none;
+      padding: 10px 20px;
+      width: fit-content;
+      margin: 0 auto;
+      .cart-empty-link-a {
+        color: white;
+        &:hover {
+          text-decoration: none;
         }
       }
     }

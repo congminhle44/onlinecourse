@@ -73,6 +73,22 @@ export const actGetOAuthLoginInfo = () => {
   };
 };
 
+export const actGetCourseInfo = (courseId) => {
+  return (dispatch) => {
+    api
+      .get(`/api/courses/get-course/course-id=${courseId}`)
+      .then((result) => {
+        dispatch({
+          type: ActionTypes.GET_COURSE_INFO,
+          courseInfo: result.data,
+        });
+      })
+      .catch((error) => {
+        return error;
+      });
+  };
+};
+
 export const actCreateNotiObj = (name, type) => {
   return (dispatch) => {
     dispatch({

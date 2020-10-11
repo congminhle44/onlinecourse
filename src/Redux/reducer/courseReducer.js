@@ -9,6 +9,7 @@ let initialState = {
     : [],
   courseAdd: {},
   courseList: [],
+  courseInfo: {},
 };
 const courseReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -18,6 +19,10 @@ const courseReducer = (state = initialState, action) => {
     }
     case ActionTypes.GET_COURSE_BY_CATEGORY: {
       state.courseByCategory = action.courseByCategory;
+      return { ...state };
+    }
+    case ActionTypes.GET_COURSE_INFO: {
+      state.courseInfo = action.courseInfo;
       return { ...state };
     }
     case ActionTypes.CREATE_NOTI_OBJ: {
