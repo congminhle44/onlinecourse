@@ -5,6 +5,7 @@ html {
   --secondary-button-color: #615f5f;
   --bg-hex: 252, 252, 252;
   --color-headings: #df4e4e;
+  --color-headings-hex: 223, 78, 78;
   --text-color: #333333;
   --text-color-hex: 51, 51, 51;
 }
@@ -15,6 +16,7 @@ html[data-theme="dark"] {
   --secondary-button-background: rgba(225, 225, 225, 225, 0.1);
   --bg-hex: 51, 51, 51;
   --color-headings: #df4e4e;
+  --color-headings-hex: 223, 78, 78;
   --text-color: #fcfcfc;
   --text-color-hex: 252, 252, 252;
 }
@@ -34,22 +36,33 @@ html[data-theme="dark"] {
   margin: 0;
   padding: 0;
 }
-body {
-  background: var(--color-headings);
-  height: 100%;
-  padding: 0.5%;
-  scroll-behavior: smooth;
-}
 
-.mainContent {
-  border-radius: 25px;
-  padding: 20px 0;
-  background-image: url("../images/lookingTech.jpg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 740px;
-  box-shadow: 0 1px 5px -3px var(--text-color);
+@media only screen and(min-width:320px) {
+  body {
+    background: var(--color-headings);
+    height: 100%;
+    scroll-behavior: smooth;
+  }
+  .mainContent {
+    padding: 20px 10px;
+    background-image: url("../images/lookingTech.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: fit-content;
+    max-height: 740px;
+    box-shadow: 0 1px 5px -3px var(--text-color);
+  }
+}
+@media only screen and(min-width:1024px) {
+  body {
+    padding: 0.5%;
+  }
+  .mainContent {
+    padding: 20px 15px;
+    border-radius: 25px;
+    height: 740px;
+  }
 }
 
 html.theme-transition,
@@ -65,17 +78,7 @@ html.theme-transition *:after {
 @import "./layout/Login/login";
 @import "./layout/Login/register";
 @import "./layout/Notfound/notfound";
-@import "./layout/Home/home";
+@import "./components/SideMenu/sideMenu";
 @import "./components/Notification/topNoti";
 @import "./layout/Cart/cart";
-
-@media (min-width: 320px) and (max-width: 767px) {
-  .desktop {
-    display: none;
-  }
-}
-@media only screen and(min-width:768px) {
-  .mobile {
-    display: none;
-  }
-}
+@import "./layout/Home/home";

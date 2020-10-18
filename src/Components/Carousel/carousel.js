@@ -42,7 +42,7 @@ class Carousel extends Component {
   };
   render() {
     return (
-      <div className="carousel desktop">
+      <div className="carousel">
         <div className="carousel-form">
           <h3>High speed learning</h3>
           <p>

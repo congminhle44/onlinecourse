@@ -3,7 +3,6 @@ import * as ActionTypes from "../constants/ActionTypes";
 let initialState = {
   courseCategories: [],
   courseByCategory: [],
-  courseByCategoryErr: null,
   courseCartList: localStorage.getItem("cart")
     ? JSON.parse(localStorage.getItem("cart"))
     : [],
@@ -27,10 +26,6 @@ const courseReducer = (state = initialState, action) => {
     }
     case ActionTypes.CREATE_NOTI_OBJ: {
       state.courseAdd = action.courseAdd;
-      return { ...state };
-    }
-    case ActionTypes.GET_COURSE_BY_CATEGORY_ERR: {
-      state.courseByCategoryErr = action.courseByCategoryErr;
       return { ...state };
     }
     case ActionTypes.GET_COURSE_LIST: {

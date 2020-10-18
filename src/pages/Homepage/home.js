@@ -11,7 +11,11 @@ class Home extends Component {
         <TopNoti />
         <div className="main">
           <Carousel />
-          <Course />
+          <div className="course">
+            <h3>Course</h3>
+            <hr />
+            <Course />
+          </div>
         </div>
       </div>
     );

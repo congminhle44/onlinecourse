@@ -27,16 +27,9 @@ export const actGetCourseByCategory = (category) => {
           type: ActionTypes.GET_COURSE_BY_CATEGORY,
           courseByCategory: result.data,
         });
-        dispatch({
-          type: ActionTypes.GET_COURSE_BY_CATEGORY_ERR,
-          courseByCategoryErr: null,
-        });
       })
       .catch((err) => {
-        dispatch({
-          type: ActionTypes.GET_COURSE_BY_CATEGORY_ERR,
-          courseByCategoryErr: err,
-        });
+        return err;
       });
   };
 };

@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { faHeart, faCartPlus } from "@fortawesome/free-solid-svg-icons";
 import * as Action from "../../Redux/action";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Link } from "react-router-dom";
 class CourseCard extends Component {
   render() {
     let { courseInfo, courseCartList, courseAdd, addCourseObj } = this.props;
@@ -12,10 +13,22 @@ class CourseCard extends Component {
       }, 1000);
     }
     return (
-      <div className="course-card">
+      <div className="course-card ">
         <div className="course-card-detail">
           <div className="course-card-image">
-            <img src={courseInfo.courseImage} alt="Avatar" />
+            <img
+              onError={(e) => {
+                e.target.src = "./images/NotFoundImg.jpg";
+              }}
+              src={courseInfo.courseImage}
+              alt="Avatar"
+            />
+            <Link
+              className="course-detail"
+              to={`/course-info/course=${courseInfo._id}`}
+            >
+              See Details
+            </Link>
           </div>
           <div className="course-card-content">
             <h5>{courseInfo.courseName}</h5>

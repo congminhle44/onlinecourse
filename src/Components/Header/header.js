@@ -116,7 +116,7 @@ class Header extends Component {
               </div>
             </div>
           )}
-          <div className="toggleMenu ml-2 mobile" ref={this.wrapperRef}>
+          <div className="toggleMenu ml-2" ref={this.wrapperRef}>
             <div
               className="navIcon"
               onClick={() => {

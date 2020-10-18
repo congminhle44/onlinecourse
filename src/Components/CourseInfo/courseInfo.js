@@ -10,7 +10,6 @@ class CourseInfo extends Component {
 
   renderCourseInfo = () => {
     const { courseInfo } = this.props;
-    console.log(courseInfo);
     if (courseInfo) {
       return (
         <div className="course-info">
