@@ -9,6 +9,7 @@ import Tab from "@material-ui/core/Tab";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 import CourseWrapper from "./courseWrapper";
+import CourseWrapperMobile from "./mobile/courseWrapperMobile";
 import CourseCard from "./courseCard";
 
 function TabPanel(props) {
@@ -54,7 +55,7 @@ function CourseCategories(props) {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
 
-  const [category, setCategory] = React.useState("BackEnd");
+  const [category, setCategory] = React.useState("Design");
   // Get id to set to tab content
   const [categoryID, setCategoryID] = React.useState(0);
 
@@ -95,7 +96,6 @@ function CourseCategories(props) {
       });
     }
   };
-
   return (
     <div className={classes.root}>
       <AppBar position="static">
@@ -111,8 +111,11 @@ function CourseCategories(props) {
       </AppBar>
 
       <TabPanel value={value} index={categoryID}>
-        {props.courseByCategoryErr === null ? (
-          <CourseWrapper value={renderTabContent()} />
+        {props.courseByCategory.length !== 0 ? (
+          <div>
+            <CourseWrapper value={renderTabContent()} />
+            <CourseWrapperMobile value={renderTabContent()} />
+          </div>
         ) : (
           "This category doesn't have any course yet"
         )}
@@ -124,7 +127,6 @@ function CourseCategories(props) {
 const mapStateToProps = (state) => ({
   courseCategories: state.courseReducer.courseCategories,
   courseByCategory: state.courseReducer.courseByCategory,
-  courseByCategoryErr: state.courseReducer.courseByCategoryErr,
 });
 
 const mapDispatchToProps = (dispatch) => {

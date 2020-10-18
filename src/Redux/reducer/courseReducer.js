@@ -3,12 +3,12 @@ import * as ActionTypes from "../constants/ActionTypes";
 let initialState = {
   courseCategories: [],
   courseByCategory: [],
-  courseByCategoryErr: null,
   courseCartList: localStorage.getItem("cart")
     ? JSON.parse(localStorage.getItem("cart"))
     : [],
   courseAdd: {},
   courseList: [],
+  courseInfo: {},
 };
 const courseReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -20,12 +20,12 @@ const courseReducer = (state = initialState, action) => {
       state.courseByCategory = action.courseByCategory;
       return { ...state };
     }
-    case ActionTypes.CREATE_NOTI_OBJ: {
-      state.courseAdd = action.courseAdd;
+    case ActionTypes.GET_COURSE_INFO: {
+      state.courseInfo = action.courseInfo;
       return { ...state };
     }
-    case ActionTypes.GET_COURSE_BY_CATEGORY_ERR: {
-      state.courseByCategoryErr = action.courseByCategoryErr;
+    case ActionTypes.CREATE_NOTI_OBJ: {
+      state.courseAdd = action.courseAdd;
       return { ...state };
     }
     case ActionTypes.GET_COURSE_LIST: {

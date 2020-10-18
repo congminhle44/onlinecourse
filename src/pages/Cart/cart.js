@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTrash } from "@fortawesome/free-solid-svg-icons";
+import { faCartArrowDown, faTrash } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 
 class Cart extends Component {
   renderCartingCourse = () => {
@@ -59,35 +60,52 @@ class Cart extends Component {
       <div className="carting">
         <h5>{courseCartList.length} courses in your basket</h5>
         <hr />
-        <div className="cart-wrapper">
-          <div className="cart-list">{this.renderCartingCourse()}</div>
-          <div className="cart-payment">
-            <div className="cart-detail">
-              <h5>Total</h5>
-              <h1>${this.calTotal()}</h1>
-              <h5>{courseCartList.length} courses:</h5>
-              <p>
-                {courseCartList
-                  .map((course) => {
-                    return course.courseName;
-                  })
-                  .join(", ")}
-              </p>
-            </div>
-            <div className="cart-button">
-              <button
-                onClick={() => {
-                  if (!localStorage.getItem("clientUser")) {
-                    window.location.pathname = "/login";
-                  }
-                }}
-                className="pay-btn"
-              >
-                Pay
-              </button>
+        {courseCartList.length > 0 ? (
+          <div className="cart-wrapper">
+            <div className="cart-list">{this.renderCartingCourse()}</div>
+            <div className="cart-payment">
+              <div className="cart-detail">
+                <h5>Total</h5>
+                <h1>${this.calTotal()}</h1>
+                <h5>{courseCartList.length} courses:</h5>
+                <p>
+                  {courseCartList
+                    .map((course) => {
+                      return course.courseName;
+                    })
+                    .join(", ")}
+                </p>
+              </div>
+              <div className="cart-button">
+                <button
+                  onClick={() => {
+                    if (!localStorage.getItem("clientUser")) {
+                      window.location.pathname = "/login";
+                    }
+                  }}
+                  className="pay-btn"
+                >
+                  Pay
+                </button>
+              </div>
             </div>
           </div>
-        </div>
+        ) : (
+          <div className="cart-empty">
+            <div className="cart-empty-content">
+              <FontAwesomeIcon
+                className="cart-empty-content-icon"
+                icon={faCartArrowDown}
+              />
+              <p>Your basket is empty. Continue shopping and find a course!</p>
+            </div>
+            <div className="cart-empty-link">
+              <Link className="cart-empty-link-a" to="/">
+                Continue your purchase
+              </Link>
+            </div>
+          </div>
+        )}
       </div>
     );
   }

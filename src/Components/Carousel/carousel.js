@@ -26,7 +26,7 @@ class Carousel extends Component {
             <Link
               key={index}
               className="searchItem"
-              to={`/course-detail/course-id=${item._id}`}
+              to={`/course-info/course=${item._id}`}
             >
               <div className="item-image">
                 <img src={item.courseImage} alt={item.courseName} />
@@ -42,7 +42,7 @@ class Carousel extends Component {
   };
   render() {
     return (
-      <div className="carousel desktop">
+      <div className="carousel">
         <div className="carousel-form">
           <h3>High speed learning</h3>
           <p>

@@ -41,6 +41,10 @@ export default class CourseWrapper extends Component {
         },
       ],
     };
-    return <Slider {...settings}>{this.props.value}</Slider>;
+    return (
+      <Slider className="course-slider" {...settings}>
+        {this.props.value}
+      </Slider>
+    );
   }
 }

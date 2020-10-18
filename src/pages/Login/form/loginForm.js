@@ -36,18 +36,20 @@ export default class LoginForm extends Component {
               <div className="login-event">
                 <button className="btn login-btn">Log in</button>
                 <p>Or</p>
-                <a href="/user/recover">Forgot your password</a>
+                <div className="register">
+                  <p
+                    className="signup-link"
+                    onClick={() => {
+                      this.props.renderReigsterForm();
+                    }}
+                  >
+                    Registration
+                  </p>
+                </div>
               </div>
-              <div className="register">
-                <p>You do not have an account?</p>
-                <p
-                  className="signup-link"
-                  onClick={() => {
-                    this.props.renderReigsterForm();
-                  }}
-                >
-                  Registration
-                </p>
+              <div>
+                <p>Forgot the password?</p>
+                <a href="/user/recover">Password reset</a>
               </div>
             </div>
           </div>

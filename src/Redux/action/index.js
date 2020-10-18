@@ -27,16 +27,9 @@ export const actGetCourseByCategory = (category) => {
           type: ActionTypes.GET_COURSE_BY_CATEGORY,
           courseByCategory: result.data,
         });
-        dispatch({
-          type: ActionTypes.GET_COURSE_BY_CATEGORY_ERR,
-          courseByCategoryErr: null,
-        });
       })
       .catch((err) => {
-        dispatch({
-          type: ActionTypes.GET_COURSE_BY_CATEGORY_ERR,
-          courseByCategoryErr: err,
-        });
+        return err;
       });
   };
 };
@@ -69,6 +62,22 @@ export const actGetOAuthLoginInfo = () => {
       })
       .catch((error) => {
         throw error;
+      });
+  };
+};
+
+export const actGetCourseInfo = (courseId) => {
+  return (dispatch) => {
+    api
+      .get(`/api/courses/get-course/course-id=${courseId}`)
+      .then((result) => {
+        dispatch({
+          type: ActionTypes.GET_COURSE_INFO,
+          courseInfo: result.data,
+        });
+      })
+      .catch((error) => {
+        return error;
       });
   };
 };

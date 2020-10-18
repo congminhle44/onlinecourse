@@ -34,7 +34,7 @@ export default class SideFeatureMenu extends Component {
   }
   render() {
     return (
-      <div className="side-menu desktop">
+      <div className="side-menu">
         <div className="feature-menu">
           <div className="toggleWrapper" onClick={this.toggleTheme}>
             <div className="toggleLabel">

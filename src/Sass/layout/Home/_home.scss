@@ -1,101 +1,16 @@
-.side-menu {
-  width: fit-content;
-  position: fixed;
-  top: 45%;
-  right: 0;
-  .feature-menu {
-    float: right;
-    width: fit-content;
-    background-color: rgba(0, 0, 0, 0.7);
-    border-radius: 10px 0 0 10px;
-    color: white;
-    padding: 5px 10px 5px 10px;
-    transform: translateX(65%);
-    clear: both;
-    transition: all 0.5s;
-    margin-bottom: 10px;
-    .toggleWrapper {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      width: fit-content;
-      cursor: pointer;
-      .toggleLabel {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        .toggleIcon {
-          width: 30px;
-          height: 30px;
-          line-height: 30px;
-          border-radius: 50%;
-          text-align: center;
-          margin: 0 3px;
-          background-color: var(--secondary-button-background);
-          svg {
-            font-weight: 600;
-          }
-          .toggleDarkIcon {
-            color: var(--text-color);
-          }
-        }
-        p {
-          margin: 0 0 0 5px;
-          font-weight: 400;
-        }
-      }
-    }
-    &:hover {
-      transform: translateX(0);
+@media only screen and (min-width: 320px) {
+  .course {
+    hr {
+      background-color: var(--color-headings);
     }
   }
-  .nav-menu {
-    .menu-item {
-      float: right;
-      width: fit-content;
-      margin: 2px 0;
-      border-radius: 10px 0 0 10px;
-      padding: 5px 10px 5px 10px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background-color: rgba(0, 0, 0, 0.7);
-      border-radius: 10px 0 0 10px;
-      color: white;
-      padding: 5px 10px;
-      transition: all 0.5s;
-      cursor: pointer;
-      clear: both;
-      &:hover {
-        text-decoration: none;
-      }
-      .courseIcon,
-      .categoryIcon,
-      .organizationIcon {
-        width: 20px;
-        height: 20px;
-      }
-      p {
-        margin: 0 0 0 5px;
-        font-weight: 400;
-      }
-    }
-    .course {
-      transform: translateX(63%);
-      transition: all 0.5s;
-    }
-    .categories {
-      transform: translateX(78%);
-      transition: all 0.5s;
-    }
-    .organization {
-      transform: translateX(80%);
-      transition: all 0.5s;
-    }
-    .course:hover,
-    .categories:hover,
-    .organization:hover {
-      transform: translateX(0);
+}
+
+@media only screen and (min-width: 768px) {
+  .course {
+    h3,
+    hr {
+      display: none;
     }
   }
 }

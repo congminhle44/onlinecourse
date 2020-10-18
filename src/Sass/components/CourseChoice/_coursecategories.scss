@@ -1,132 +1,211 @@
-.course-wrapper {
-  width: 90%;
-  margin: 0 auto;
-  margin-top: 5vh;
-  padding: 10px 20px;
-  border-radius: 20px;
-  border: 1.5px solid var(--color-headings);
-  background-color: rgba(var(--bg-hex), 0.93);
-  box-shadow: 0 3px 3px 0 rgba(var(--bg-hex), 0.5),
-    0 0 3px 0 rgba(var(--bg-hex), 0.5);
-  h4,
-  p {
-    color: var(--text-color);
-  }
-  .makeStyles-root-1 {
-    background-color: transparent;
-  }
-  .MuiPaper-elevation4 {
-    box-shadow: none;
-  }
-  .MuiBox-root {
-    color: var(--text-color);
-    height: fit-content;
-    max-height: 650px;
-  }
-  .MuiAppBar-colorPrimary {
-    background-color: transparent;
-    color: var(--text-color);
-    button:focus {
+@media only screen and (min-width: 320px) {
+  .course-wrapper {
+    margin-top: 5vh;
+    border-radius: 20px;
+    border: 1.5px solid var(--color-headings);
+    background-color: rgba(var(--bg-hex), 0.93);
+    box-shadow: 0 3px 3px 0 rgba(var(--bg-hex), 0.5),
+      0 0 3px 0 rgba(var(--bg-hex), 0.5);
+    .course-header {
+      color: var(--text-color);
+      display: none;
+    }
+    .course-slider {
+      display: none;
+    }
+    .makeStyles-root-1 {
+      background-color: transparent;
+    }
+    .MuiPaper-elevation4 {
+      box-shadow: none;
+    }
+    .MuiBox-root {
+      color: var(--text-color);
+      height: fit-content;
+      max-height: 650px;
+      overflow: hidden;
+      overflow: auto;
+    }
+    .MuiAppBar-colorPrimary {
+      background-color: transparent;
+      color: var(--text-color);
+      button:focus {
+        outline: none;
+      }
+      button {
+        font-size: 0.9rem;
+        font-weight: bold;
+      }
+    }
+    .MuiCardActions-root {
       outline: none;
     }
-  }
-  .MuiCardActions-root {
-    outline: none;
-  }
-  button {
-    outline: none;
-  }
-  .slick-next:before,
-  .slick-prev:before {
-    font-size: 40px;
-    color: var(--text-color);
-  }
-  .slick-prev {
-    left: -40px;
-  }
-
-  .course-card {
-    width: 220px;
-    margin: 0 auto;
-    .course-card-detail {
-      .course-card-image {
-        width: 100%;
-        height: 250px;
-        img {
+    button {
+      outline: none;
+    }
+    .slick-next:before,
+    .slick-prev:before {
+      font-size: 40px;
+      color: var(--text-color);
+    }
+    .slick-prev {
+      left: -40px;
+    }
+    .course-wrapper-mobile {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    .course-card {
+      width: 46%;
+      height: 100%;
+      text-decoration: none;
+      .course-card-detail {
+        overflow: hidden;
+        .course-card-image {
           width: 100%;
-          height: 100%;
-        }
-      }
-      .course-card-content {
-        h5 {
-          color: var(--text-color);
-          text-align: center;
-        }
-      }
-      .course-card-function {
-        opacity: 0;
-        visibility: hidden;
-        transform: translateY(-100%);
-        display: flex;
-        align-items: center;
-        width: 100%;
-        padding: 5px 0;
-        transition: all 0.5s;
-        svg {
-          font-size: 18px;
-        }
-        .add-cart-button {
-          width: 100%;
-          padding: 5px;
-          height: 35px;
-          border-radius: 5px;
-          background-color: var(--color-headings);
-          text-align: center;
-          color: white;
-          outline: none;
-          border: none;
-        }
-        .add-wishlist {
-          background-color: transparent;
-          border-radius: 5px;
-          padding: 5px;
-          margin: 0 5px;
-          border: 1px solid var(--color-headings);
-          transition: all 0.5s;
-          svg {
-            color: var(--color-headings);
+          height: 250px;
+          position: relative;
+          img {
+            width: 100%;
+            height: 100%;
           }
-          &:hover {
-            background-color: var(--color-headings);
-            svg {
-              color: white;
-            }
+          &::before {
+            content: "";
+            position: absolute;
+            background-color: rgba(var(--color-headings-hex), 0.9);
+            width: 300%;
+            height: 100%;
+            top: 0;
+            left: -500%;
+            transform: skewX(45deg);
+            transition: all 0.5s;
+          }
+          .course-detail {
+            position: absolute;
+            color: white;
+            display: flex;
+            font-size: 1rem;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(0) scale(0.8);
+            transition: all 0.5s;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            text-decoration: none;
           }
         }
-        .add-cartPlus {
-          background-color: transparent;
-          border-radius: 5px;
-          padding: 5px;
-          border: 1px solid green;
-          transition: all 0.5s;
-          svg {
-            color: green;
-          }
-          &:hover {
-            background-color: green;
-            svg {
-              color: white;
-            }
+        .course-card-content {
+          h5 {
+            color: var(--text-color);
+            text-align: center;
           }
         }
-      }
-
-      &:hover {
         .course-card-function {
-          opacity: 1;
-          visibility: visible;
-          transform: translateY(0);
+          opacity: 0;
+          visibility: hidden;
+          transform: translateY(-100%);
+          display: flex;
+          align-items: center;
+          width: 100%;
+          padding: 5px 0;
+          transition: all 0.5s;
+          svg {
+            font-size: 18px;
+          }
+          .add-cart-button {
+            width: 100%;
+            padding: 5px;
+            height: 35px;
+            border-radius: 5px;
+            background-color: var(--color-headings);
+            text-align: center;
+            color: white;
+            outline: none;
+            border: none;
+          }
+          .add-wishlist {
+            background-color: transparent;
+            border-radius: 5px;
+            padding: 5px;
+            margin: 0 5px;
+            border: 1px solid var(--color-headings);
+            transition: all 0.5s;
+            svg {
+              color: var(--color-headings);
+            }
+            &:hover {
+              background-color: var(--color-headings);
+              svg {
+                color: white;
+              }
+            }
+          }
+          .add-cartPlus {
+            background-color: transparent;
+            border-radius: 5px;
+            padding: 5px;
+            border: 1px solid green;
+            transition: all 0.5s;
+            svg {
+              color: green;
+            }
+            &:hover {
+              background-color: green;
+              svg {
+                color: white;
+              }
+            }
+          }
         }
+
+        &:hover {
+          .course-card-function {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+          }
+          .course-card-image {
+            &:before {
+              left: -100%;
+            }
+            .course-detail {
+              opacity: 1;
+              visibility: visible;
+              transform: translateY(0) scale(1);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .course-wrapper {
+    padding: 10px 15px;
+    .MuiBox-root {
+      overflow: hidden;
+    }
+    .course-wrapper-mobile {
+      display: none;
+    }
+    .course-header {
+      display: block;
+    }
+    .course-slider {
+      display: block;
+      width: 95%;
+      margin: 0 auto;
+    }
+    .course-card {
+      width: 100%;
+      .course-card-detail {
+        width: 90%;
       }
     }
   }
