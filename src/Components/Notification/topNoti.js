@@ -7,12 +7,16 @@ class TopNoti extends Component {
     return (
       <div
         className={
-          courseAdd.name && courseAdd.type ? "topNoti show" : "topNoti"
+          courseAdd.name && courseAdd.type
+            ? "topNoti-wrapper show"
+            : "topNoti-wrapper"
         }
       >
-        <h4>
-          {courseAdd.name} was added to {courseAdd.type}
-        </h4>
+        <div className="topNoti">
+          <h4>
+            {courseAdd.name} was added to {courseAdd.type}
+          </h4>
+        </div>
       </div>
     );
   }
