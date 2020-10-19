@@ -47,7 +47,7 @@ export default class LoginForm extends Component {
                   </p>
                 </div>
               </div>
-              <div>
+              <div className="forget-pass">
                 <p>Forgot the password?</p>
                 <a href="/user/recover">Password reset</a>
               </div>
